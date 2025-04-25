@@ -26,9 +26,10 @@ while game_is_on:
     snake.move()
 
     if snake.head.distance(food) < 15:
+        eaten_food_color = food.rgb
         food.relocate_food()
         scoreboard.increase_score()
-        snake.extend()
+        snake.extend(eaten_food_color)
 
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
         game_is_on = False
