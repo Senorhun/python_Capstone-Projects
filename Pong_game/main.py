@@ -21,8 +21,18 @@ def go_down():
     new_y = paddle.ycor() - 20
     paddle.goto(paddle.xcor(), new_y)
 
+def go_right():
+    new_x = paddle.xcor() + 20
+    paddle.goto(new_x, paddle.ycor())
+
+def go_left():
+    new_x = paddle.xcor() - 20
+    paddle.goto(new_x, paddle.ycor())
+
 screen.listen()
 screen.onkey(go_up, "Up")
 screen.onkey(go_down, "Down")
+screen.onkey(go_right, "Right")
+screen.onkey(go_left, "Left")
 
 screen.exitonclick()
