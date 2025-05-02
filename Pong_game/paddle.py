@@ -6,8 +6,9 @@ class Paddle(Turtle):
     def __init__(self, position):
        super().__init__()
        self.shape("square") 
-       self.color(random.choice(bright_colors))
-       self.shapesize(stretch_wid=5, stretch_len=1)
+       self.chosen_color = random.choice(bright_colors)
+       self.color(self.chosen_color)
+       self.shapesize(stretch_wid=6, stretch_len=1)
        self.penup()
        self.goto(position)
 

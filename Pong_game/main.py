@@ -2,6 +2,7 @@ from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard
+from scoreboard_background import Background
 import time
 import turtle
 
@@ -15,6 +16,8 @@ turtle.colormode(255)
 r_paddle = Paddle((350,0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
+l_scoreboard_background = Background(-102, 240, l_paddle.chosen_color)
+r_scoreboard_background = Background(98, 240, r_paddle.chosen_color)
 scoreboard = Scoreboard()
 screen.listen()
 screen.onkey(r_paddle.go_up, "Up")
@@ -26,10 +29,11 @@ game_is_on = True
 while game_is_on:
     time.sleep(ball.move_speed)
     screen.update()
+    scoreboard.update_scoreboard() 
     ball.move()
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_y()
-        
+
     if ball.distance(r_paddle) < 55 and ball.xcor() > 325 or ball.distance(l_paddle) < 55 and ball.xcor() < -325:
         ball.bounce_x()
 
