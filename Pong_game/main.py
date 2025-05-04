@@ -5,6 +5,7 @@ from scoreboard import Scoreboard
 from scoreboard_background import Background
 import time
 import turtle
+from sides import Side
 
 screen = Screen()
 screen.bgcolor("black")
@@ -19,6 +20,9 @@ ball = Ball()
 l_scoreboard_background = Background(-102, 240, l_paddle.chosen_color)
 r_scoreboard_background = Background(98, 240, r_paddle.chosen_color)
 scoreboard = Scoreboard()
+l_side = Side(-200, 298)
+r_side = Side(300, -291)
+
 screen.listen()
 screen.onkey(r_paddle.go_up, "Up")
 screen.onkey(r_paddle.go_down, "Down")
@@ -31,7 +35,7 @@ while game_is_on:
     screen.update()
     scoreboard.update_scoreboard() 
     ball.move()
-    if ball.ycor() > 280 or ball.ycor() < -280:
+    if ball.ycor() > 280 or ball.ycor() < -278:
         ball.bounce_y()
 
     if 330 < ball.xcor() < 350 and r_paddle.ycor() - 60 < ball.ycor() < r_paddle.ycor() + 60:
