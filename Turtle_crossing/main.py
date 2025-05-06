@@ -15,5 +15,6 @@ screen.onkey(turtle.move_up, "Up")
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-
+    car.create_car()
+    car.move()
 screen.exitonclick()
