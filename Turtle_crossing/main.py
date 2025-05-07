@@ -17,4 +17,8 @@ while game_is_on:
     screen.update()
     car.create_car()
     car.move()
+    for c in car.car_list:
+        if abs(turtle.xcor() -c.xcor()) < 28 and abs(turtle.ycor() - c.ycor()) <15:
+            game_is_on = False
+
 screen.exitonclick()
