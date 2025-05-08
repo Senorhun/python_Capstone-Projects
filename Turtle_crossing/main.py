@@ -11,9 +11,9 @@ turtle = Player()
 car = CarManager()
 screen.listen()
 screen.onkey(turtle.move_up, "Up")
-time_speed = 0.1
+
 while game_is_on:
-    time.sleep(time_speed)
+    time.sleep(0.1)
     screen.update()
     car.create_car()
     car.move()
@@ -22,5 +22,5 @@ while game_is_on:
             game_is_on = False
     if turtle.ycor() > 280:
         turtle.next_lvl()
-        time_speed *= 0.7
+        car.speed_up()
 screen.exitonclick()
