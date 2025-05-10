@@ -15,6 +15,7 @@ class Scoreboard(Turtle):
 
     def game_over(self):
         
+        self.reset_score()
         self.lives -= 1
         self.refresh_scoreboard()
         if self.lives == 0:
