@@ -43,3 +43,6 @@ for i in range(3):
                 game_is_on = False
                 scoreboard.game_over()
 screen.exitonclick()
+
+with open("save_score", mode="w") as file:
+    file.write(str(scoreboard.best_score))
