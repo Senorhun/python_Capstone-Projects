@@ -19,6 +19,14 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.right, "Right")
 screen.onkey(snake.left, "Left")
 
+try:
+    with open("Snake_game/saved_score.txt") as file:
+        content = file.read()
+        scoreboard.best_score = int(content)
+except FileNotFoundError:
+    scoreboard.best_score = 0
+scoreboard.refresh_scoreboard()
+
 game_is_on = True
 for i in range(3):
     snake.reset_snake()
@@ -44,5 +52,5 @@ for i in range(3):
                 scoreboard.game_over()
 screen.exitonclick()
 
-with open("save_score", mode="w") as file:
+with open("Snake_game/saved_score.txt", mode="w") as file:
     file.write(str(scoreboard.best_score))
